@@ -1,0 +1,23 @@
+ NCCL_P2P_DISABLE="1" NCCL_IB_DISABLE="1" CUDA_VISIBLE_DEVICES=0,1,2,3 deepspeed --num_gpus=4  ./src/pipeline/train.py  \
+    --deepspeed ./scripts/zero2.json  \
+    --model_name_or_path google/flan-t5-base  \
+    --data_path workspace/data/glue/CoLA \
+    --data_name cola \
+    --bf16 True   \
+    --output_dir ./ckpts/  \
+    --use_peft lora \
+    --num_train_epochs 10  \
+    --per_device_train_batch_size 4  \
+    --gradient_accumulation_steps 4  \
+    --save_strategy "steps" \
+    --save_steps 500 \
+    --evaluation_strategy "epoch" \
+    --eval_steps 100 \
+    --learning_rate 1e-4  \
+    --weight_decay 0.  \
+    --warmup_ratio 0.03  \
+    --lr_scheduler_type "cosine"  \
+    --logging_steps 1   \
+    --dataloader_num_workers 4  \
+    --tf32 True  \
+    --report_to wandb

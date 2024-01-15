@@ -1,0 +1,28 @@
+torch
+transformers==4.31.0
+bitsandbytes==0.38.1
+accelerate
+deepspeed
+sentencepiece
+wandb
+fire==0.5.0
+pydantic==1.10.6
+icetk==0.0.4 # ChatGLM
+cpm_kernels==1.0.11  # ChatGLM
+datasets
+numpy==1.24.2
+tiktoken==0.3.3  # OpenAI tokenizer
+openai==0.27.6
+einops==0.6.1
+# ChatRWKV
+rwkv==0.7.3
+safetensors==0.3.1
+# LM-Eval
+sacrebleu==2.3.1
+protobuf==3.20.3
+pycountry==22.3.5
+rouge-score==0.1.2
+pytablewriter==1.0.0
+evaluate
+scikit-learn
+scipy
